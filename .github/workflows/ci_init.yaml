@@ -1,0 +1,14 @@
+name: ci-golang-init
+on: [push]
+jobs:
+  check-application:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: '1.15'
+    - name: RUN GO TEST
+      run: go test
+    - name: RUN MATH
+      run: go run math.go
